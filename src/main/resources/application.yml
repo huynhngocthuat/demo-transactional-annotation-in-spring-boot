@@ -1,0 +1,36 @@
+server:
+  servlet:
+    context-path: /api
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5555/demo_transaction
+    username: postgres
+    password: 123456
+  main:
+    banner-mode: off
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+        type: trace
+        temp:
+          use_jdbc_metadata_defaults: false
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+        batch_size: 25
+        order_inserts: true
+        order_updates: true
+        connection:
+          provider_disables_autocommit: true
+        enable_lazy_load_no_trans: true
